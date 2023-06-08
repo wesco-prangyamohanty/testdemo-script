@@ -11,9 +11,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    runscript:
-          name: Example
-          runs-on: ubuntu-latest
-          steps:
-            - name: Call a Bash Script
-              run:  bash ${GITHUB_WORKSPACE}/testdemo-script/sample.sh testdemo-script
+    -name: Example
+     runs-on: ubuntu-latest
+    steps:
+    - name: Call a Bash Script
+      run:  bash ${GITHUB_WORKSPACE}/testdemo-script/sample.sh testdemo-script
