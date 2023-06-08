@@ -1,0 +1,43 @@
+link: https://www.stevefenton.co.uk/blog/2022/06/run-a-bash-script-with-arguments-in-github-actions/
+
+1.rsync -av --exclude=*.md --exclude=*.txt my-folder-name/ _output -----EXPANATION BELOW
+   rsync(1) -av --exclude=*.md --exclude=*.txt "$1/" _output
+
+rsync(1)  
+       a fast, versatile, remote (and local) file-copying tool
+-a, --archive
+       This is equivalent to -rlptgoD. It is a quick way  of  saying  you  want  recursion  and  want  to
+       preserve  almost  everything  (with -H being a notable omission).  The only exception to the above
+       equivalence is when --files-from is specified, in which case -r is not implied.
+
+       Note that -a does not preserve hardlinks, because finding multiply-linked files is expensive.  You
+       must separately specify -H.
+-v, --verbose
+       This  option  increases  the amount of information you are given during the transfer.  By default,
+       rsync works silently. A single -v will give you information about what files are being transferred
+       and  a  brief summary at the end. Two -v options will give you information on what files are being
+       skipped and slightly more information at the end. More than two -v options should only be used  if
+       you are debugging rsync.
+
+       Note that the names of the transferred files that are output are done using a default --out-format
+       of "%n%L", which tells you just the name of the file and, if the item is a link, where it  points.
+       At  the  single  -v  level  of  verbosity,  this  does not mention when a file gets its attributes
+       changed.  If you ask for an itemized list  of  changed  attributes  (either  --itemize-changes  or
+       adding  "%i"  to  the  --out-format  setting), the output (on the client) increases to mention all
+       items that are changed in any way.  See the --out-format option for more details.
+--exclude=PATTERN
+       This  option is a simplified form of the --filter option that defaults to an exclude rule and does
+       not allow the full rule-parsing syntax of normal filter rules.
+
+       See the FILTER RULES section for detailed information on this option.
+Local:  rsync [OPTION...] SRC... [DEST]
+
+Access via remote shell:
+  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST:DEST
+
+Access via rsync daemon:
+  Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST]
+        rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST::DEST
+        rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST
