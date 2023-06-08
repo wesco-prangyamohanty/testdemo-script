@@ -1,0 +1,19 @@
+name: Demotest
+on: [push]
+
+jobs:
+  test:
+    name: Demonstrate running github-hosted shell scripts
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    runscript:
+          name: Example
+          runs-on: ubuntu-latest
+          steps:
+            - name: Call a Bash Script
+              run:  bash ${GITHUB_WORKSPACE}/testdemo-script/sample.sh testdemo-script
