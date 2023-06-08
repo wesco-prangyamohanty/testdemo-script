@@ -11,4 +11,4 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Call a Bash Script
-      run:  bash ${GITHUB_WORKSPACE}/testdemo-script/sample.sh testdemo-script
+      run:  bash ${GITHUB_WORKSPACE}/script/sample.sh 
