@@ -32,7 +32,7 @@ jobs:
 
       - name: Veracode SCA Scan
         run: |
-          pipeline-scan-LATEST/sample.sh \
+          sample.sh \
             --veracode_api_id ${{ secrets.VERACODE_API_ID }} \
             --veracode_api_key ${{ secrets.VERACODE_API_KEY }} \
             --file_path . \
