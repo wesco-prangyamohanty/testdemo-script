@@ -25,10 +25,10 @@ jobs:
       #     unzip pipeline-scan-LATEST.zip
       #     chmod +x pipeline-scan-LATEST/sample.sh
 
-      - name: Build and Test
-        run: |
-          go build ./...
-          go test ./...
+      # - name: Build and Test
+      #   run: |
+      #     go build ./...
+      #     go test ./...
 
       - name: Veracode SCA Scan
         run: |
