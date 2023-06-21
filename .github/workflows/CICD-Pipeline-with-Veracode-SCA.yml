@@ -19,11 +19,11 @@ jobs:
         with:
           go-version: 1.16
 
-      - name: Install Veracode SCA Agent
-        run: |
-          curl -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
-          unzip pipeline-scan-LATEST.zip
-          chmod +x pipeline-scan-LATEST/sample.sh
+      # - name: Install Veracode SCA Agent
+      #   run: |
+      #     curl -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
+      #     unzip pipeline-scan-LATEST.zip
+      #     chmod +x pipeline-scan-LATEST/sample.sh
 
       - name: Build and Test
         run: |
