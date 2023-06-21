@@ -23,7 +23,7 @@ jobs:
         run: |
           curl -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
           unzip pipeline-scan-LATEST.zip
-          chmod +x pipeline-scan-LATEST/veracode-pipeline-scan.sh
+          chmod +x pipeline-scan-LATEST/sample.sh
 
       - name: Build and Test
         run: |
@@ -32,7 +32,7 @@ jobs:
 
       - name: Veracode SCA Scan
         run: |
-          pipeline-scan-LATEST/veracode-pipeline-scan.sh \
+          pipeline-scan-LATEST/sample.sh \
             --veracode_api_id ${{ secrets.VERACODE_API_ID }} \
             --veracode_api_key ${{ secrets.VERACODE_API_KEY }} \
             --file_path . \
