@@ -22,7 +22,7 @@ jobs:
 
       - name: Veracode SCA Scan
         run: |
-          veracode-pipeline-scanh \
+          veracode-pipeline-scan \
             --veracode_api_id ${{ secrets.VERACODE_API_ID }} \
             --veracode_api_key ${{ secrets.VERACODE_API_KEY }} \
             --f sample.sh \
