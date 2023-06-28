@@ -1,4 +1,36 @@
-name: SAST Workflow
+# name: SAST Workflow
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   sast:
+#     name: Static Application Security Testing
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Setup Bash Script
+#         uses: actions/checkout@v2
+        
+#       - name: Call a Bash Script
+#         run:  bash ${GITHUB_WORKSPACE}/sample.sh 
+#     #   - name: Install Go Linter
+#     #     run: go install golang.org/x/lint/golint
+
+#     #   - name: Run Go Linter
+#     #     run: golint ./...
+
+#       # Add additional steps for other SAST tools
+
+
+
+
+name: SAST Implementation
 
 on:
   push:
@@ -7,22 +39,16 @@ on:
 
 jobs:
   sast:
-    name: Static Application Security Testing
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Bash Script
-        uses: actions/checkout@v2
-        
-      - name: Call a Bash Script
-        run:  bash ${GITHUB_WORKSPACE}/sample.sh 
-    #   - name: Install Go Linter
-    #     run: go install golang.org/x/lint/golint
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install shellcheck -y
 
-    #   - name: Run Go Linter
-    #     run: golint ./...
-
-      # Add additional steps for other SAST tools
+      - name: Run SAST
+        run: shellcheck sample.sh
