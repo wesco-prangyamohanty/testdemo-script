@@ -18,11 +18,12 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.16
+      - name: Call a Bash Script
+        run:  bash ${GITHUB_WORKSPACE}/sample.sh 
+    #   - name: Install Go Linter
+    #     run: go install golang.org/x/lint/golint
 
-      - name: Install Go Linter
-        run: go install golang.org/x/lint/golint
-
-      - name: Run Go Linter
-        run: golint ./...
+    #   - name: Run Go Linter
+    #     run: golint ./...
 
       # Add additional steps for other SAST tools
