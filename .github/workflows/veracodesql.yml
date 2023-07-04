@@ -17,7 +17,7 @@ jobs:
         run: |
           wget https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
           unzip pipeline-scan-LATEST.zip
-          chmod 777 sample.sh
+          bash ${GITHUB_WORKSPACE}/sample.sh
 
       - name: Run Veracode Pipeline Scan
         run: ./sample.sh -f ./file.sql --flavor SQL
