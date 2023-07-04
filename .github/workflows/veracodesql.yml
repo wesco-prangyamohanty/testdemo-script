@@ -1,0 +1,23 @@
+name: Veracode Pipeline Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Veracode Pipeline Scan
+        run: |
+          wget https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
+          unzip pipeline-scan-LATEST.zip
+          chmod +x pipeline-scan.sh
+
+      - name: Run Veracode Pipeline Scan
+        run: ./pipeline-scan.sh -f path/to/your/file.sql --flavor SQL
