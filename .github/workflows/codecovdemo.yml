@@ -1,6 +1,6 @@
-name: Pull Request Tasks
+name: codecov test
 
-on: pull_request
+on: push
 
 jobs:
   test:
