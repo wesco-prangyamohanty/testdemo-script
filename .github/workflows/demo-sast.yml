@@ -52,5 +52,6 @@ jobs:
 
       - name: Run SAST
         run: shellcheck sample.sh
+        
       - name: Call a Bash Script
         run:  bash ${GITHUB_WORKSPACE}/sample.sh
